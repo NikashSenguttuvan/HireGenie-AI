@@ -22,5 +22,6 @@ Response Rules:
 9. Keep the answer concise unless the user asks for a detailed explanation.
 
 Question:
+
 {question}
 """)
