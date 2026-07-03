@@ -10,7 +10,7 @@ llm = ChatGoogleGenerativeAI(
     temperature=0.7,
 )
 
-chain = placement_prompt | llm 
+chain = placement_prompt | llm
 
 
 def chat(message: str):
@@ -23,3 +23,9 @@ def chat(message: str):
 
     return response.content
 
+
+def invoke_llm(prompt: str):
+
+    response = llm.invoke(prompt)
+
+    return response.content
