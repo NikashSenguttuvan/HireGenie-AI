@@ -5,7 +5,11 @@ import ChatBubble from "./ChatBubble";
 import ChatInput from "./ChatInput";
 import SuggestedQuestions from "./SuggestedQuestions";
 
-export default function ChatWindow({ messages, setMessages }) {
+export default function ChatWindow({
+  resumeId,
+  messages,
+  setMessages,
+}) {
   const bottomRef = useRef(null);
 
   // Auto-scroll whenever a new message is added
@@ -48,7 +52,11 @@ export default function ChatWindow({ messages, setMessages }) {
       <SuggestedQuestions />
 
       {/* Chat Input */}
-      <ChatInput messages={messages} setMessages={setMessages} />
+      <ChatInput
+        resumeId={resumeId}
+        messages={messages}
+        setMessages={setMessages}
+      />
     </>
   );
 }

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import ChatWindow from "../components/chat/ChatWindow";
+import { useResume } from "../context/ResumeContext";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([]);
+  const { resumeId } = useResume();
 
   const handleNewChat = () => {
     if (messages.length === 0) return;
 
     const confirmed = window.confirm(
-      "Start a new conversation? Current chat will be cleared."
+      "Start a new conversation? Current chat will be cleared.",
     );
 
     if (confirmed) {
@@ -42,6 +44,7 @@ export default function Chatbot() {
 
       {/* Chat */}
       <ChatWindow
+        resumeId={resumeId}
         messages={messages}
         setMessages={setMessages}
       />
