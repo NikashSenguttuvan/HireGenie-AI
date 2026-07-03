@@ -1,15 +1,18 @@
+import { Outlet } from "react-router-dom";
 import Sidebar from "../components/layout/Sidebar";
 import Navbar from "../components/layout/Navbar";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout() {
   return (
-    <div className="flex bg-slate-950 text-white">
+    <div className="flex min-h-screen bg-slate-950 text-white">
       <Sidebar />
 
-      <div className="flex-1">
+      <div className="flex flex-1 flex-col">
         <Navbar />
 
-        <main className="p-8">{children}</main>
+        <main className="flex-1 p-8 overflow-auto">
+          <Outlet />
+        </main>
       </div>
     </div>
   );

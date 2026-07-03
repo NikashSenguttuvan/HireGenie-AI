@@ -2,8 +2,6 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useResume } from "../context/ResumeContext";
 
-import DashboardLayout from "../layouts/DashboardLayout";
-
 import JDHero from "../components/jd/JDHero";
 import ResumeStatus from "../components/jd/ResumeStatus";
 import JDInput from "../components/jd/JDInput";
@@ -66,7 +64,7 @@ export default function JDMatcher() {
   };
 
   return (
-    <DashboardLayout>
+    <div>
       <JDHero />
 
       <ResumeStatus resumeId={resumeId} resumeName={resumeName} />
@@ -92,6 +90,6 @@ export default function JDMatcher() {
           <Recommendations result={result} />
         </div>
       )}
-    </DashboardLayout>
+    </div>
   );
 }

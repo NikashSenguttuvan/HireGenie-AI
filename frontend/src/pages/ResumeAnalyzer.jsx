@@ -3,8 +3,6 @@ import toast from "react-hot-toast";
 
 import { useResume } from "../context/ResumeContext";
 
-import DashboardLayout from "../layouts/DashboardLayout";
-
 import UploadBox from "../components/resume/UploadBox";
 import FilePreview from "../components/resume/FilePreview";
 import UploadProgress from "../components/resume/UploadProgress";
@@ -79,7 +77,7 @@ export default function ResumeAnalyzer() {
   };
 
   return (
-    <DashboardLayout>
+    <div>
       <AnalysisHero />
 
       <UploadBox onFileSelect={setFile} />
@@ -179,6 +177,6 @@ export default function ResumeAnalyzer() {
           <AIRecommendations items={analysis.recommendations} />
         </div>
       )}
-    </DashboardLayout>
+    </div>
   );
 }

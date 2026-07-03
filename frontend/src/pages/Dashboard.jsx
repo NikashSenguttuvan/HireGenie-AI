@@ -1,7 +1,5 @@
 import { FileText, Target, Briefcase, MessageSquare } from "lucide-react";
 
-import DashboardLayout from "../layouts/DashboardLayout";
-
 import DashboardHeader from "../components/dashboard/DashboardHeader";
 import StatCard from "../components/dashboard/StatCard";
 import QuickActions from "../components/dashboard/QuickActions";
@@ -10,7 +8,7 @@ import AIInsights from "../components/dashboard/AIInsights";
 
 export default function Dashboard() {
   return (
-    <DashboardLayout>
+    <div>
       <DashboardHeader />
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -52,6 +50,6 @@ export default function Dashboard() {
 
         <AIInsights />
       </div>
-    </DashboardLayout>
+    </div>
   );
 }
