@@ -1,10 +1,14 @@
 import { useState } from "react";
-import ChatWindow from "../components/chat/ChatWindow";
+
 import { useResume } from "../context/ResumeContext";
 
+import ChatWindow from "../components/chat/ChatWindow";
+
 export default function Chatbot() {
-  const [messages, setMessages] = useState([]);
   const { resumeId } = useResume();
+
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleNewChat = () => {
     if (messages.length === 0) return;
@@ -21,15 +25,13 @@ export default function Chatbot() {
   return (
     <div className="flex h-full flex-col rounded-xl border border-slate-700 bg-[#0B1020] overflow-hidden">
       {/* Header */}
-      <div className="border-b border-slate-700 bg-[#151C2E] px-8 py-6">
+      <div className="border-b border-slate-700 bg-[#151C2E] px-8 py-5">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white">
-              AI Resume Assistant
-            </h1>
+            <h1 className="text-3xl font-bold text-white">HireGenie AI</h1>
 
             <p className="mt-2 text-slate-400">
-              Ask questions about your uploaded resume.
+              Ask anything about your uploaded resume.
             </p>
           </div>
 
@@ -42,11 +44,12 @@ export default function Chatbot() {
         </div>
       </div>
 
-      {/* Chat */}
       <ChatWindow
         resumeId={resumeId}
         messages={messages}
         setMessages={setMessages}
+        loading={loading}
+        setLoading={setLoading}
       />
     </div>
   );

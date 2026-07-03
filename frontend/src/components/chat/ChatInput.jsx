@@ -4,9 +4,8 @@ import toast from "react-hot-toast";
 
 import { askAI } from "../../services/askService";
 
-const ChatInput = ({ resumeId, messages, setMessages }) => {
+const ChatInput = ({ resumeId, setMessages, loading, setLoading }) => {
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
     const question = input.trim();
@@ -18,7 +17,6 @@ const ChatInput = ({ resumeId, messages, setMessages }) => {
       return;
     }
 
-    // User message
     const userMessage = {
       id: crypto.randomUUID(),
       role: "user",

@@ -4,24 +4,25 @@ import EmptyState from "./EmptyState";
 import ChatBubble from "./ChatBubble";
 import ChatInput from "./ChatInput";
 import SuggestedQuestions from "./SuggestedQuestions";
+import ThinkingBubble from "./ThinkingBubble";
 
 export default function ChatWindow({
   resumeId,
   messages,
   setMessages,
+  loading,
+  setLoading,
 }) {
   const bottomRef = useRef(null);
 
-  // Auto-scroll whenever a new message is added
   useEffect(() => {
     bottomRef.current?.scrollIntoView({
       behavior: "smooth",
     });
-  }, [messages]);
+  }, [messages, loading]);
 
   return (
     <>
-      {/* Messages */}
       <div
         className="
           flex-1
@@ -43,19 +44,20 @@ export default function ChatWindow({
               />
             ))}
 
+            {loading && <ThinkingBubble />}
+
             <div ref={bottomRef} />
           </div>
         )}
       </div>
 
-      {/* Suggested Questions */}
       <SuggestedQuestions />
 
-      {/* Chat Input */}
       <ChatInput
         resumeId={resumeId}
-        messages={messages}
         setMessages={setMessages}
+        loading={loading}
+        setLoading={setLoading}
       />
     </>
   );
