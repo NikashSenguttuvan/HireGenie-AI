@@ -1,4 +1,4 @@
-from app.config import GEMINI_API_KEY
+from app.config import settings
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from app.prompts.placement_prompt import placement_prompt
@@ -6,7 +6,7 @@ from app.prompts.placement_prompt import placement_prompt
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
-    google_api_key=GEMINI_API_KEY,
+    google_api_key=settings.GEMINI_API_KEY,
     temperature=0.7,
 )
 
